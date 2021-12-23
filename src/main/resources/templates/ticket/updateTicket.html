@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="#" th:action="@{/updateTicket/} + ${ticket.id}" th:object="${ticket}" method="post">
+    <h3>price</h3>
+    <input type="text" th:field="*{price}" required th:value="${ticket.price}"><br>
+    <h3>session id</h3>
+    <select name="sessionId" required>
+        <option th:value="${ticket.session.id}" th:text="${ticket.session.id}+' - source '"></option>
+        <option th:each="ses : ${sessionList}"
+                th:value="${ses.id}" th:text="${ses.id}"></option>
+    </select>
+    <h3>idSeat</h3>
+    <input type="text" th:field="*{idSeat}" required th:value="${ticket.idSeat}"><br>
+    <h3>idColumn</h3>
+    <input type="text" th:field="*{idColumn}" required th:value="${ticket.idColumn}"><br>
+    <h3>status</h3>
+    <input type="checkbox" th:field="*{status}"  th:value="${ticket.status}"><br>
+    <input type="submit">
+</form>
+<td><a th:href="@{/ticket/{id}(id=${ticket.id})}">Go back</a></td>
+</body>
+</html>

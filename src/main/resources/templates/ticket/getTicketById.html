@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table border="1">
+    <tr bgcolor="33A5FF">
+        <th>ID</th>
+        <th>Price</th>
+        <th>Session ID</th>
+        <th>Seat</th>
+        <th>Column</th>
+        <th>Blocked</th>
+        <th></th>
+        <th></th>
+    </tr>
+    <tr>
+        <td><a th:href="@{/ticket/{id}(id=${ticket.id})}" th:text="${ticket.id}"></a></td>
+        <td th:text="${ticket.price}"></td>
+        <td><a th:href="@{/session/{id}(id=${ticket.session.id})}" th:text="${ticket.session.id}"></a></td>
+        <td th:text="${ticket.idSeat}"></td>
+        <td th:text="${ticket.idColumn}"></td>
+        <td th:text="${ticket.status}"></td>
+        <td><a th:href="@{/deleteTicket/{id}(id=${ticket.id})}">Delete</a></td>
+        <td><a th:href="@{/updateTicket/{id}(id=${ticket.id})}">Update</a></td>
+    </tr>
+</table>
+<a href="/allTickets">All tickets</a>
+</body>
+</html>

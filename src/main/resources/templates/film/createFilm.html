@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="#" th:action="@{/createFilm}" th:object="${film}" method="post">
+    <h3>title</h3>
+    <input type="text" th:field="*{title}" required><br>
+    <h3>director</h3>
+    <input type="text" th:field="*{director}" required><br>
+    <h3>duration</h3>
+    <input type="text" th:field="*{duration}" required><br>
+    <h3>description</h3>
+    <input type="text" th:field="*{description}" required><br>
+    <h3>language</h3>
+    <input type="text" th:field="*{language}" required><br>
+    <h3>genre</h3>
+    <select th:field="*{genre}">
+        <option th:each="genre : ${T(com.example.SOAPZ.entity.Genre).values()}"
+                th:value="${genre}" th:text="${genre}"></option>
+    </select>
+    <input type="submit">
+</form>
+<a href="/allFilms">Go back</a>
+</body>
+</html>

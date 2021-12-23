@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table border="1">
+    <tr bgcolor="33A5FF">
+        <th>ID</th>
+        <th>date</th>
+        <th>time</th>
+        <th>hall</th>
+        <th>film</th>
+        <th></th>
+        <th></th>
+    </tr>
+    <tr>
+        <td><a th:href="@{/session/{id}(id=${sess.id})}" th:text="${sess.id}"></a></td>
+        <td th:text="${sess.date}"></td>
+        <td th:text="${sess.time}"></td>
+        <td><a th:href="@{/hall/{id}(id=${sess.hall.id})}" th:text="${sess.hall.id}"></a></td>
+        <td><a th:href="@{/film/{id}(id=${sess.film.id})}" th:text="${sess.film.id}"></a></td>
+        <td><a th:href="@{/deleteSession/{id}(id=${sess.id})}">Delete</a></td>
+        <td><a th:href="@{/updateSession/{id}(id=${sess.id})}">Update</a></td>
+    </tr>
+</table>
+<a href="/allSessions">All sessions</a>
+</body>
+</html>

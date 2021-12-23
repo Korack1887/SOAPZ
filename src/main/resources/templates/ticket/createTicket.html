@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="#" th:action="@{/createTicket}" th:object="${ticket}" method="post">
+    <h3>price</h3>
+    <input type="text" th:field="*{price}" required><br>
+    <h3>session id</h3>
+    <select name="sessionId" required>
+        <option th:each="ses : ${sessionList}"
+                th:value="${ses.id}" th:text="${ses.id}"></option>
+    </select>
+    <h3>idSeat</h3>
+    <input type="text" th:field="*{idSeat}" required><br>
+    <h3>idColumn</h3>
+    <input type="text" th:field="*{idColumn}" required><br>
+    <h3>status</h3>
+    <input type="checkbox" th:field="*{status}"><br>
+    <input type="submit">
+</form>
+<a href="/allTickets">Go back</a>
+</body>
+</html>

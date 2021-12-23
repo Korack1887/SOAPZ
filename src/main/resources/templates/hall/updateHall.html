@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="#" th:action="@{/createHall}" th:object="${hall}" method="post">
+    <h3>type</h3>
+    <input type="text" th:field="*{type}" required th:value="${type}"><br>
+    <h3>columnQuantity</h3>
+    <input type="text" th:field="*{columnQuantity}" required th:value="${columnQuantity}"><br>
+    <h3>seatQuantity</h3>
+    <input type="text" th:field="*{seatQuantity}" required th:value="${seatQuantity}"><br>
+    <input type="submit">
+</form>
+<td><a th:href="@{/hall/{id}(id=${hall.id})}">Go back</a></td>
+</body>
+</html>

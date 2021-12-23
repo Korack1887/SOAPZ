@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="#" th:action="@{/updateSession/} + ${sess.id}" th:object="${sess}" method="post">
+    <h3>date</h3>
+    <input type="text" th:field="*{date}" required><br>
+    <h3>time id</h3>
+    <input type="text" th:field="*{time}" required><br>
+    <select name="hallId" required>
+        <option th:value="${sess.hall.id}" th:text="${sess.hall.type}+' - source '"></option>
+        <option th:each="hall : ${hallList}"
+                th:value="${hall.id}" th:text="${hall.type}"></option>
+    </select>
+    <select name="filmId" required>
+        <option th:value="${sess.film.id}" th:text="${sess.film.title}+' - source '"></option>
+        <option th:each="film : ${filmList}"
+                th:value="${film.id}" th:text="${film.title}"></option>
+    </select>
+    <input type="submit">
+</form>
+<td><a th:href="@{/session/{id}(id=${sess.id})}">Go back</a></td>
+</body>
+</html>

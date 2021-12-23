@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table border="1">
+    <tr bgcolor="33A5FF">
+    <th>ID</th>
+    <th>Type</th>
+    <th>ColumnQuantity</th>
+    <th>SeatQuantity</th>
+    <th></th>
+    </tr>
+    <tr th:each="hall: ${allHalls}">
+        <td><a th:href="@{/hall/{id}(id=${hall.id})}" th:text="${hall.id}"></a></td>
+        <td th:text="${hall.type}"></td>
+        <td th:text="${hall.columnQuantity}"></td>
+        <td th:text="${hall.seatQuantity}"></td>
+        <td><a th:href="@{/deleteHall/{id}(id=${hall.id})}">Delete</a></td>
+    </tr>
+</table>
+<a href="/createHall">New Hall</a>
+</body>
+</html>

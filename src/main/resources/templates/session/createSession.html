@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="#" th:action="@{/createSession}" th:object="${sess}" method="post">
+    <h3>date</h3>
+    <input type="text" th:field="*{date}" required><br>
+    <h3>time id</h3>
+    <input type="text" th:field="*{time}" required><br>
+    <select name="hallId" required>
+        <option th:each="hall : ${hallList}"
+                th:value="${hall.id}" th:text="${hall.type}"></option>
+    </select>
+    <select name="filmId" required>
+        <option th:each="film : ${filmList}"
+                th:value="${film.id}" th:text="${film.title}"></option>
+    </select>
+    <input type="submit">
+</form>
+<a href="/allSessions">Go back</a>
+</body>
+</html>

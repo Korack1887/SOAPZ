@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="#" th:action="@{/updateFilm/} + ${film.id}" th:object="${film}" method="post">
+    <h3>title</h3>
+    <input type="text" th:field="*{title}" required th:value="${film.title}"><br>
+    <h3>director</h3>
+    <input type="text" th:field="*{director}" required th:value="${film.director}"><br>
+    <h3>duration</h3>
+    <input type="text" th:field="*{duration}" required th:value="${film.duration}"><br>
+    <h3>description</h3>
+    <input type="text" th:field="*{description}" required th:value="${film.description}"><br>
+    <h3>language</h3>
+    <input type="text" th:field="*{language}" required th:value="${film.language}"><br>
+    <h3>genre</h3>
+    <select th:field="*{genre}" th:value="${film.genre}">
+        <option th:each="genre : ${T(com.example.SOAPZ.entity.Genre).values()}"
+                th:value="${genre}" th:text="${genre}"></option>
+    </select>
+    <input type="submit">
+</form>
+<td><a th:href="@{/film/{id}(id=${film.id})}">Go back</a></td>
+</body>
+</html>
